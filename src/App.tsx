@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import style from './App.module.css';
+import { UseHover, UseUpdateEffect, UseLocalStorage, UseFetch, UseInput, UseUpdateLogger, UseEventListener, UseMediaQuery, UseEffectOnce, UseIsFirstRender, UseIsMounted, UseBoolean, UseCopyToClipboard, UseTimeout, UseCounter, UseInterval, UseCountdown, UseOnClickOutside, UseDebounce } from './Examples';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      {/* <UseLocalStorage /> */}
+      {/* <UseUpdateLogger /> */}
+      {/* <UseInput /> */}
+      {/* <UseFetch /> */}
+      {/* <UseEventListener /> */}
+      {/* <UseMediaQuery /> */}
+      {/* <UseEffectOnce /> */}
+      {/* <UseUpdateEffect /> */}
+      {/* <UseIsFirstRender /> */}
+      {/* <UseHover /> */}
+      {/* <UseIsMounted /> */}
+      {/* <UseBoolean /> */}
+      {/* <UseCopyToClipboard /> */}
+      {/* <UseTimeout /> */}
+      {/* <UseInterval /> */}
+      {/* <UseCounter /> */}
+      {/* <UseCountdown /> */}
+      {/* <UseOnClickOutside /> */}
+      <UseDebounce />
     </div>
   );
 }

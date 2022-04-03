@@ -7,7 +7,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  border: 0;
+  padding: 1rem;
+  background: red;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #939393;
+  margin: 0.5rem;
+}
+
+button:hover {
+  box-shadow: 0 0 15px #4f4f4f;
+}
+
+label {
+  width: 5rem;
+  display: inline-block;
+  text-align: left;
+}
+
+input {
+  border: 1px solid lightgrey;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 0.5rem;
 }
