@@ -1,28 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useEventListener } from './useEventListener';
 
 export const useMediaQuery = (query: string, value: any = true, defaultValue: any = false): any => {
 
-  const getMatches = (query: string) => window?.matchMedia(query).matches ? value : defaultValue;
-
-  const [matches, setMatches] = useState(getMatches(query))
-
-  const handleChange = () => {
-    setMatches(getMatches(query))
-  }
+  const [isMatches, setIsMatches] = useState(false);
+  const [mediaQueryList, setMediaQueryList] = useState<MediaQueryList>();
 
   useEffect(() => {
-    const matchMedia = window.matchMedia(query)
+    const mediaQueryList = window.matchMedia(query);
+    setMediaQueryList(mediaQueryList);
+    setIsMatches(mediaQueryList.matches);
+  }, [query]);
 
-    // Triggered at the first client-side load and if query changes
-    handleChange()
 
-    matchMedia.addEventListener('change', handleChange)
+  useEventListener("change", (event: any) => setIsMatches(event.matches), mediaQueryList)
 
-    return () => {
-      matchMedia.removeEventListener('change', handleChange)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
-
-  return matches
+  return isMatches ? value : defaultValue
 }

@@ -1,25 +1,26 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 
-interface ReturnType {
-  count: number
-  increment: (step?: number) => void
-  decrement: (step?: number) => void
+type CounterHelpers = {
+  increment: (step?: any) => void
+  decrement: (step?: any) => void
+  multiply: (step?: any) => void
   reset: () => void
-  setCount: Dispatch<SetStateAction<number>>
 }
 
+type Count = number;
+type SetCount = Dispatch<SetStateAction<number>>;
+
+type ReturnType = [Count, SetCount, CounterHelpers];
+
 export const useCounter = (initialValue?: number): ReturnType => {
-  const [count, setCount] = useState(initialValue || 0)
+  const [count, setCount] = useState(initialValue || 0);
 
-  const increment = (step: number = 1) => setCount(x => x + step)
-  const decrement = (step: number = 1) => setCount(x => x - step)
-  const reset = () => setCount(initialValue || 0)
+  const getInt = useCallback((step: any) => (isNaN(parseInt(step)) ? 1 : parseInt(step)), []);
 
-  return {
-    count,
-    setCount,
-    increment,
-    decrement,
-    reset
-  }
+  const increment = useCallback((step: any = 1) => setCount(x => x + getInt(step)), [getInt]);
+  const decrement = useCallback((step: any = 1) => setCount(x => x - getInt(step)), [getInt]);
+  const multiply = useCallback((step: any = 2) => setCount(x => x * getInt(step)), [getInt]);
+  const reset = useCallback(() => setCount(initialValue || 0), [initialValue]);
+
+  return [count, setCount, { increment, decrement, multiply, reset }]
 }

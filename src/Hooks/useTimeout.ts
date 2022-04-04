@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 type Clear = () => void;
 type Reset = () => void;
 
-export const useTimeout = (callback: () => void, delay?: number): [Clear, Reset] => {
+export const useTimeout = (callback: () => void, delay?: number | null): [Clear, Reset] => {
   const callbackRef = useRef(callback);
   const timeoutRef = useRef<any>();
 
@@ -13,6 +13,7 @@ export const useTimeout = (callback: () => void, delay?: number): [Clear, Reset]
   }, [callback])
 
   const set = useCallback(() => {
+    if (!delay && delay !== 0) return;
     timeoutRef.current = setTimeout(() => callbackRef.current(), delay)
   }, [delay])
 
@@ -22,9 +23,6 @@ export const useTimeout = (callback: () => void, delay?: number): [Clear, Reset]
 
   // Set up the timeout.
   useEffect(() => {
-    // Don't schedule if no delay is specified.
-    // Note: 0 is a valid value for delay.
-    if (!delay && delay !== 0) return;
     set();
     return clear
   }, [delay, set, clear])

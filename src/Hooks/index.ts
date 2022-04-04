@@ -1,4 +1,4 @@
-export * from "./useLocalStorage";
+export * from "./useStorage";
 export * from "./useUpdateLogger";
 export * from "./useInput";
 export * from "./useFetch";
@@ -17,3 +17,8 @@ export * from "./useCounter";
 export * from "./useCountdown";
 export * from "./useOnClickOutside";
 export * from "./useDebounce";
+export * from "./useThrottle";
+export * from "./usePrevious";
+export * from "./useStateWithHistory";
+export * from "./useDeepCompareEffect";
+export * from "./useWindowSize";

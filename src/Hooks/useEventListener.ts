@@ -1,9 +1,9 @@
-import { RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const useEventListener = <T extends HTMLElement = HTMLDivElement>(
   eventType: keyof DocumentEventMap,
   listner: Function = () => { },
-  target?: RefObject<T>,
+  target: any = window,
   options: object = {}
 ) => {
 
@@ -15,7 +15,7 @@ export const useEventListener = <T extends HTMLElement = HTMLDivElement>(
 
   useEffect(() => {
 
-    const targetElement = target?.current || window;
+    const targetElement = target?.current || target;
 
     if (!targetElement?.addEventListener) return;
 

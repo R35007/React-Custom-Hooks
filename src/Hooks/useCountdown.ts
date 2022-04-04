@@ -41,13 +41,9 @@ export const useCountdown = ({
   min,
   max
 }: UseCountdownType): ReturnType => {
-  const {
-    count,
-    setCount,
-    increment,
-    decrement,
-    reset: resetCounter,
-  } = useCounter(seconds);
+
+  const [count, setCount, { increment, decrement, reset: resetCounter }] = useCounter(seconds);
+
   /**
    * Note: used to control the useInterval
    * running: If true, the interval is running
