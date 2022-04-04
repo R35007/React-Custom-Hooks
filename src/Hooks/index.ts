@@ -28,3 +28,4 @@ export * from "./useResizeObserver";
 export * from "./useSize";
 export * from "./useIntersectionObserver";
 export * from "./useIsOnScreen";
+export * from "./useIsOnline";

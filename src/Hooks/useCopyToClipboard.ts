@@ -2,19 +2,23 @@ import { useState } from 'react';
 
 type CopiedValue = string | null
 type CopyFn = (text: string) => Promise<boolean> // Return success
+type IsCopied = boolean // Return success
 
-export const useCopyToClipboard = (): [CopiedValue, CopyFn] => {
+export const useCopyToClipboard = (): [CopyFn, IsCopied, CopiedValue] => {
   const [copiedText, setCopiedText] = useState<CopiedValue>(null);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
 
   const copySuccessHandler = (text: string | null) => {
     console.log('Copying text command was successful');
     setCopiedText(text);
+    setIsCopied(true);
     return true;
   }
 
   const copyFailureHandler = () => {
     console.log('Copying text command was unsuccessful');
     setCopiedText(null);
+    setIsCopied(false);
     return false;
   }
 
@@ -51,10 +55,8 @@ export const useCopyToClipboard = (): [CopiedValue, CopyFn] => {
   }
 
   const copy: CopyFn = async (text): Promise<boolean> => {
-
     return navigator?.clipboard ? await copyTextToClipboard(text) : fallbackCopyTextToClipboard(copiedText);
-
   }
 
-  return [copiedText, copy]
+  return [copy, isCopied, copiedText]
 }

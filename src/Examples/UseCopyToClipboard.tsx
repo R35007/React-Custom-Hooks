@@ -1,7 +1,7 @@
-import { useCopyToClipboard } from '../Hooks'
+import { useCopyToClipboard } from '../Hooks';
 
 export const UseCopyToClipboard = () => {
-  const [value, copy] = useCopyToClipboard();
+  const [copy, isCpoied, value] = useCopyToClipboard();
   return (
     <>
       <h1>Click to copy:</h1>
@@ -11,6 +11,7 @@ export const UseCopyToClipboard = () => {
         <button onClick={() => copy('C')}>C</button>
       </div>
       <p>Copied value: {value ?? 'Nothing is copied yet!'}</p>
+      {isCpoied && <p>Successfully Copied !</p>}
     </>
   )
 }

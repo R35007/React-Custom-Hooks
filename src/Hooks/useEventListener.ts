@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 export const useEventListener = <T extends HTMLElement = HTMLDivElement>(
-  eventType: keyof DocumentEventMap,
+  eventType: keyof DocumentEventMap | keyof WindowEventHandlersEventMap,
   listner: Function = () => { },
   target: any = window,
   options: object = {}
