@@ -1,5 +1,5 @@
 import CSS from 'csstype';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useEventListener } from '../Hooks';
 
 

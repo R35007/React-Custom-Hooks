@@ -3,9 +3,9 @@ import {
   UseHover, UseUpdateEffect, UseStorage, UseFetch, UseInput, UseUpdateLogger,
   UseEventListener, UseMediaQuery, UseEffectOnce, UseIsFirstRender, UseIsMounted,
   UseBoolean, UseCopyToClipboard, UseTimeout, UseCounter, UseInterval, UseCountdown,
-  UseOnClickOutside, UseDebounce, UseThrottle, UsePrevious, UseStateWithHistory, UseDeepCompareEffect
+  UseOnClickOutside, UseDebounce, UseThrottle, UsePrevious, UseStateWithHistory, UseDeepCompareEffect,
+  UseRenderCount, UseResizeObserver, UseSize, UseWindowSize, UseIntersectionObserver, UseIsOnScreen
 } from './Examples';
-import UseWindowSize from './Examples/UseWindowSize';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       {/* <UseInput /> */}
       {/* <UseFetch /> */}
       {/* <UseEventListener /> */}
-      <UseMediaQuery />
+      {/* <UseMediaQuery /> */}
       {/* <UseEffectOnce /> */}
       {/* <UseUpdateEffect /> */}
       {/* <UseIsFirstRender /> */}
@@ -34,6 +34,11 @@ function App() {
       {/* <UseStateWithHistory /> */}
       {/* <UseDeepCompareEffect /> */}
       {/* <UseWindowSize /> */}
+      {/* <UseRenderCount /> */}
+      {/* <UseResizeObserver /> */}
+      {/* <UseSize /> */}
+      {/* <UseIntersectionObserver /> */}
+      <UseIsOnScreen />
     </div>
   );
 }

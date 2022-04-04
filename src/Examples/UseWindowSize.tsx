@@ -1,7 +1,7 @@
-import React from 'react'
-import { useWindowSize } from '../Hooks'
+import React from 'react';
+import { useWindowSize } from '../Hooks';
 
-export default function UseWindowSize() {
+export const UseWindowSize = () => {
 
   const windowSize = useWindowSize();
 

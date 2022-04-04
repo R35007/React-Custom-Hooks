@@ -23,9 +23,10 @@ button:hover {
 }
 
 label {
-  width: 5rem;
+  min-width: 9rem;
   display: inline-block;
   text-align: left;
+  font-weight: bold;
 }
 
 input {
